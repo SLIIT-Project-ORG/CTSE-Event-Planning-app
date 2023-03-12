@@ -5,6 +5,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Hello APP");
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Event Planning APP"),
+        centerTitle: true,
+      ),
+      body: const Center(
+        child: Text("This is main page.. Dont touh this",
+            style: TextStyle(fontSize: 20)),
+      ),
+    );
   }
 }
