@@ -25,34 +25,87 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  late String HallName;
+  late int HAllCApacity;
+  late int HallPrice;
+
+  gethallname(hallname){
+    this.HallName=hallname;
+  }
+  gethallcapacity(hallcapacity){
+    this.HAllCApacity=int.parse(hallcapacity);
+  }
+  gethallprice(hallprice){
+    this.HallPrice=int.parse(hallprice);
+  }
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar:AppBar(
         title: Text("Venue Management"),
       ),
-      body: Column(
-        children: <Widget>[
-          
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFormField(
-              
-              decoration: InputDecoration(
-                labelText: "Hall Name",
-                fillColor: Colors.white,
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue,
-                  width: 2.0)
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: <Widget>[
+            
+            Padding(
+              padding: const EdgeInsets.only(bottom:8.0),
+              child: TextFormField(
+                
+                decoration: InputDecoration(
+                  labelText: "Hall Name",
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue,
+                    width: 2.0)
+                  ),
                 ),
-                
+                onChanged: (String hallname) {
+                  gethallname(hallname);
+                },
               ),
-              onChanged: (String hallname) {
-                
-              },
             ),
-          )
-        ],
+      
+            Padding(
+              padding: const EdgeInsets.only(bottom:8.0),
+              child: TextFormField(
+                
+                decoration: InputDecoration(
+                  labelText: "Hall Capacity",
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue,
+                    width: 2.0)
+                  ),
+                ),
+                onChanged: (String hallcapacity) {
+                  gethallcapacity(hallcapacity);
+                },
+              ),
+            ),
+      
+            Padding(
+              padding: const EdgeInsets.only(bottom:8.0),
+              child: TextFormField(
+                
+                decoration: InputDecoration(
+                  labelText: "Hall Price",
+                  fillColor: Colors.white,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue,
+                    width: 2.0)
+                  ),
+                ),
+                onChanged: (String hallprice) {
+                  gethallprice(hallprice);
+                },
+              ),
+            )
+          ],
+        ),
       ),
 
     );
