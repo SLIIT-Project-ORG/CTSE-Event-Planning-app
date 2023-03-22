@@ -28,16 +28,28 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      appBar:AppBar(
+        title: Text("Venue Management"),
+      ),
       body: Column(
         children: <Widget>[
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: "Hall Name",
-              fillColor: Colors.white,
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue,
-                width: 2.0)
-              )
+          
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              
+              decoration: InputDecoration(
+                labelText: "Hall Name",
+                fillColor: Colors.white,
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue,
+                  width: 2.0)
+                ),
+                
+              ),
+              onChanged: (String hallname) {
+                
+              },
             ),
           )
         ],
