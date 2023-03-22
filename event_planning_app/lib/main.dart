@@ -1,4 +1,5 @@
 import 'package:event_planning_app/screen/HomePage.dart';
+import 'package:event_planning_app/screen/VenueManagement.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: 'Event Planning Home Page'),
+      home: const VenueManagement(title: '',),
     );
   }
 }
