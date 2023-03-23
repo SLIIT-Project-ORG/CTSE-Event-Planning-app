@@ -1,6 +1,6 @@
 import 'package:event_planning_app/main.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 class VenueManagement extends StatelessWidget{
   const VenueManagement({super.key, required String title});
 
@@ -38,6 +38,37 @@ class _MyAppState extends State<MyApp> {
   }
   gethallprice(hallprice){
     this.HallPrice=int.parse(hallprice);
+  }
+  createData(){
+   // print("create");
+print(HallPrice);
+print(HallName);
+print(HAllCApacity);
+    DocumentReference documentReference=FirebaseFirestore.instance.collection("Halls").
+    doc(HallName);
+
+    Map<String,dynamic>halls={
+      "HallName":HallName,
+      "HallCapacity":HAllCApacity,
+      "HallPrice":HallPrice
+    };
+    // documentReference.set(halls).whenComplete(() => 
+    // {
+    //   print("$HallName created")
+    // }
+    
+    // );
+    print(halls);
+     documentReference.set(halls).onError((error, stackTrace) => {print(error)});
+  }
+  readData(){
+    print("read");
+  }
+  updateData(){
+    print("update");
+  }
+  deleteData(){
+    print("delete");
   }
 
   @override
@@ -103,6 +134,50 @@ class _MyAppState extends State<MyApp> {
                   gethallprice(hallprice);
                 },
               ),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children:<Widget> [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:Colors.blue 
+                  ), 
+                  child: Text("Create"),
+                  onPressed: (){
+                    createData();
+                  },
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:Colors.green 
+                  ), 
+                  child: Text("Read"),
+                  onPressed: (){
+                    readData();
+                  },
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:Colors.yellow 
+                  ), 
+                  child: Text("Update"),
+                  onPressed: (){
+                    updateData();
+                  },
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:Colors.red 
+                  ), 
+                  child: Text("Delete"),
+                  onPressed: (){
+                    deleteData();
+                  },
+                )
+              ],
+                
+              
             )
           ],
         ),
