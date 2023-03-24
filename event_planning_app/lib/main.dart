@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'dart:developer' as developer;
 import 'package:event_planning_app/screen/HomePage.dart';
 import 'package:event_planning_app/screen/VenueManagement.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +10,10 @@ void main() async {
   runApp(const MyApp());
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+    //stderr.writeln("print me");
+   
   );
+  
 }
 
 class MyApp extends StatelessWidget {
