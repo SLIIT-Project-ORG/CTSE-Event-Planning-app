@@ -29,12 +29,12 @@ class _MyAppState extends State<VenueManagement> {
 
   createData()async {
     // print("create");
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference halls = FirebaseFirestore.instance.collection('halls');
+   // FirebaseFirestore firestore = FirebaseFirestore.instance;
+   // CollectionReference halls = FirebaseFirestore.instance.collection('halls');
     print(HallPrice);
     print(HallName);
     print(HAllCApacity);
-    DocumentReference documentReference = halls.doc('halldetails');
+    DocumentReference documentReference = FirebaseFirestore.instance.collection("halls").doc(HallName);
 
     Map<String, dynamic> hallss = {
       "HallName": HallName,
@@ -52,9 +52,9 @@ class _MyAppState extends State<VenueManagement> {
         .onError((e, _) => print("Error writing document: $e"));
   }
 
-  readData() {
+  readData()async {
     DocumentReference documentReference =
-        FirebaseFirestore.instance.collection("Halls").doc(HallName);
+        FirebaseFirestore.instance.collection("halls").doc(HallName);
 
     documentReference.get().then((value) => print(value.data()));
   }
