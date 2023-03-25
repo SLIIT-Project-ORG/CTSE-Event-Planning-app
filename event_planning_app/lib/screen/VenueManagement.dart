@@ -59,12 +59,28 @@ class _MyAppState extends State<VenueManagement> {
     documentReference.get().then((value) => print(value.data()));
   }
 
-  updateData() {
-    print("update");
+  updateData() async{
+     DocumentReference documentReference = FirebaseFirestore.instance.collection("halls").doc(HallName);
+
+    Map<String, dynamic> hallss = {
+      "HallName": HallName,
+      "HallCapacity": HAllCApacity,
+      "HallPrice": HallPrice
+    };
+   // documentReference
+   //     .set(hallss)
+   //     .whenComplete(() => {print("$HallName created")});
+     print(hallss);
+
+    documentReference
+        
+        .set(hallss)
+        .onError((e, _) => print("Error writing document: $e"));
   }
 
-  deleteData() {
-    print("delete");
+  deleteData()async {
+    DocumentReference documentReference = FirebaseFirestore.instance.collection("halls").doc(HallName);
+    documentReference.delete().whenComplete(() => print("deleted"));
   }
 
   @override
@@ -153,6 +169,40 @@ class _MyAppState extends State<VenueManagement> {
                   },
                 )
               ],
+            ),
+            StreamBuilder(
+              stream:()async*{yield* FirebaseFirestore.instance.collection("halls").snapshots();} (),
+              builder: (context, snapshot){
+                
+                if(snapshot.hasData){
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data?.docs.length,
+                    itemBuilder: (context, index) {
+                      DocumentSnapshot documentsnapshot=snapshot.data!.docs[index];
+                      return Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(documentsnapshot
+                          ["HAllName"]),
+                          ),
+                          Expanded(
+                            child: Text(documentsnapshot
+                          ["HAllCapacity"].toString()),
+                          ),
+                          Expanded(
+                            child: Text(documentsnapshot
+                          ["HAllPrice"].toString()),
+                          ),
+                        ]
+                        
+                      );
+                    },
+                  );
+                }
+                else
+                return Text('Loading...');
+              }
             )
           ],
         ),
