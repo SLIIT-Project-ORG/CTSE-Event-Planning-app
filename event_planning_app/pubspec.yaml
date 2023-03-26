@@ -39,6 +39,8 @@ dependencies:
   firebase_auth: ^4.2.10
   cloud_firestore: ^4.4.4
   uuid: ^3.0.7
+  dropdown_search: ^5.0.6
+  datetime_picker_formfield: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -70,8 +72,12 @@ flutter:
      - assets/vendor/images/bronze.png
      - assets/vendor/images/booking.png
      - assets/vendor/images/admin.png
+     - assets/vendor/images/home.png
+     - assets/Task/images/task.png
+     - assets/vendor/images/homeback.png
+     - assets/vendor/images/flower.png
+     - assets/Task/images/update.png
      - assets/vendor/images/home.png 
-     
      - assets/vendor/images/homeback.png
      - assets/vendor/images/flower.png
     

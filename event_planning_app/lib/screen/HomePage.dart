@@ -1,4 +1,4 @@
-
+import 'package:event_planning_app/screen/Task/addTask.dart';
 import 'package:event_planning_app/screen/Vendor/Admin/addpackage.dart';
 import 'package:event_planning_app/screen/Vendor/VendorScreen.dart';
 import 'package:event_planning_app/screen/Vendor/bookdetails.dart';
@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Home Page '),
+          title: const Text('Event Planning App'),
           backgroundColor: kPrimaryColor,
           actions: <Widget>[
             IconButton(
@@ -73,7 +73,13 @@ class HomePage extends StatelessWidget {
                             ),
                             SizedBox(height: 16.0),
                             ElevatedButton.icon(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AddTask()),
+                                );
+                              },
                               icon: Icon(Icons.checklist),
                               label: Text('Tasks'),
                             ),
@@ -85,6 +91,14 @@ class HomePage extends StatelessWidget {
                               icon: Icon(Icons.location_on),
                               label: Text('Venues'),
                             ),
+                            // SizedBox(height: 16.0),
+                            // ElevatedButton.icon(
+                            //   onPressed: () {
+                            //     // Navigate to guest screen
+                            //   },
+                            //   icon: Icon(Icons.people),
+                            //   label: Text('Guests'),
+                            // ),
                             SizedBox(height: 16.0),
                             ElevatedButton.icon(
                               onPressed: () {
