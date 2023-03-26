@@ -1,7 +1,4 @@
-import 'dart:io';
-import 'dart:developer' as developer;
 import 'package:event_planning_app/screen/HomePage.dart';
-import 'package:event_planning_app/screen/VenueManagement.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -10,10 +7,7 @@ void main() async {
   runApp(const MyApp());
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-    //stderr.writeln("print me");
-   
   );
-  
 }
 
 class MyApp extends StatelessWidget {
@@ -27,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const VenueManagement(title: '',),
+      home: HomePage(),
     );
   }
 }
