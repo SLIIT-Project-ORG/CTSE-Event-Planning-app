@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:event_planning_app/model/Task.dart';
-import '../model/Package.dart';
 
 class TaskRepo {
   final CollectionReference _taskCollection =
