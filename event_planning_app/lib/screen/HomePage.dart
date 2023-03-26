@@ -1,4 +1,7 @@
 import 'package:event_planning_app/screen/Task/addTask.dart';
+import 'package:event_planning_app/screen/Vendor/Admin/addpackage.dart';
+import 'package:event_planning_app/screen/Vendor/VendorScreen.dart';
+import 'package:event_planning_app/screen/Vendor/bookdetails.dart';
 import 'package:flutter/material.dart';
 
 import '../constant.dart';
@@ -59,11 +62,11 @@ class HomePage extends StatelessWidget {
                           children: [
                             ElevatedButton.icon(
                               onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //       builder: (context) => VendorHome()),
-                                // );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => VendorHome()),
+                                );
                               },
                               icon: Icon(Icons.person),
                               label: Text('Vendors'),
@@ -99,11 +102,11 @@ class HomePage extends StatelessWidget {
                             SizedBox(height: 16.0),
                             ElevatedButton.icon(
                               onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //       builder: (context) => AddPackage()),
-                                // );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AddPackage()),
+                                );
                               },
                               icon: Icon(Icons.people),
                               label: Text('Admin'),
